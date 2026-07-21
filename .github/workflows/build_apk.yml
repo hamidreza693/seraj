@@ -19,14 +19,15 @@ jobs:
 
     - name: Accept Android licenses
       run: |
-        yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses || true
+        yes | sdkmanager --licenses || true
 
-    - name: Install Android tools
+    - name: Install Android SDK packages
       run: |
-        yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+        sdkmanager "platform-tools" "platforms;android-35" "build-tools;37.0.0"
 
     - name: Build APK
       run: |
+        yes | sdkmanager --licenses
         buildozer android debug
 
     - name: Upload APK
