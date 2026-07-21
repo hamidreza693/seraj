@@ -1,0 +1,76 @@
+#:import dp kivy.metrics.dp
+
+<MainScreen>:
+    md_bg_color: 0.65, 0.75, 0.58, 1
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(24)
+        spacing: dp(16)
+
+        Widget:
+            size_hint_y: .08
+
+        Image:
+            source: "assets/images/tasbih.png"
+            size_hint: None, None
+            size: dp(130), dp(130)
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {"center_x": .5}
+
+        MDLabel:
+            text: root.title
+            halign: "center"
+            font_name: "Vazir"
+            font_size: "34sp"
+            theme_text_color: "Primary"
+
+        MDLabel:
+            text: root.subtitle
+            halign: "center"
+            font_name: "Vazir"
+            font_size: "38sp"
+            theme_text_color: "Secondary"
+
+        Widget:
+            size_hint_y: .12
+
+        MDLabel:
+            text: str(root.count)
+            halign: "center"
+            font_size: "82sp"
+            theme_text_color: "Primary"
+
+        Widget:
+            size_hint_y: .08
+
+        MDFloatingActionButton:
+            icon: "plus"
+            md_bg_color: 0.22, 0.72, 0.32, 1
+            elevation: 10
+            pos_hint: {"center_x": .5}
+            size_hint: None, None
+            size: dp(72), dp(72)
+
+            on_release:
+                root.increment()
+
+        Widget:
+            size_hint_y: None
+            height: dp(18)
+
+        MDRaisedButton:
+            text: root.reset_text
+            font_name: "Vazir"
+            md_bg_color: 0.74, 0.67, 0.53, 1
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x": .5}
+            size_hint_x: .60
+            height: dp(50)
+
+            on_release:
+                root.reset_counter()
+
+        Widget:
+            size_hint_y: .12
