@@ -20,7 +20,7 @@ jobs:
 
     - name: Accept Android licenses
       run: |
-        yes | sdkmanager --licenses || true
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
     - name: Install Android SDK packages
       run: |
